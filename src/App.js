@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WordButton from "./WordButton";
 import ListSelector from "./ListSelector";
 import animals from "./lists/animals.js";
@@ -10,7 +10,19 @@ const App = () => {
   const [currentList, setCurrentList] = useState(animals);
   const [currentWord, setCurrentWord] = useState("");
   const [usedWords, setUsedWords] = useState([]);
+  const [useTimer, setUseTimer] = useState(false);
+  const [isTimeUp, setIsTimeUp] = useState(false);
 
+  useEffect(() => {
+    let timer;
+    if (currentWord) {
+      setIsTimeUp(false);
+      timer = setTimeout(() => {
+        setIsTimeUp(true);
+      }, 3000); // 30000 ms = 30 segundos
+    }
+    return () => clearTimeout(timer);
+  }, [currentWord]);
   const handleWordChange = () => {
     const availableWords = currentList.filter(
       (word) => !usedWords.includes(word)
@@ -26,6 +38,20 @@ const App = () => {
       availableWords[Math.floor(Math.random() * availableWords.length)];
     setCurrentWord(randomWord);
     setUsedWords([...usedWords, randomWord]);
+  };
+  const ActivateTimer = ({ onChange }) => {
+    return (
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={useTimer}
+            onChange={(e) => onChange(e.target.checked)}
+          />
+          Usar temporizador (30 segundos por palabra)
+        </label>
+      </div>
+    );
   };
 
   const handleListChange = (listName) => {
@@ -47,9 +73,34 @@ const App = () => {
 
   return (
     <div>
-      <h1> {currentWord}</h1>
+      <h1
+        style={{
+          backgroundColor: isTimeUp && useTimer ? "red" : "transparent",
+        }}
+      >
+        {currentWord}
+      </h1>
+      <ActivateTimer onChange={setUseTimer} />
       <WordButton onClick={handleWordChange} />
       <ListSelector onChange={handleListChange} />
+      <div>
+        Instrucciones:
+        <ul>
+          <li>Presiona el botón para generar una palabra aleatoria.</li>
+          <li>
+            Selecciona la categoría de palabras que deseas utilizar en el juego.
+          </li>
+          <li>
+            El juego reiniciará la lista de palabras una vez que se hayan
+            utilizado todas.
+          </li>
+          <li>
+            Puedes usar las palabras para jugar a las adivinanzas, para juegos
+            de mimica, pictionary, etc.
+          </li>
+          <li>¡Diviértete!</li>
+        </ul>
+      </div>
     </div>
   );
 };
