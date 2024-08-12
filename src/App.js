@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import WordButton from "./WordButton";
+import ListSelector from "./ListSelector";
 
-function App() {
+const animals = ["Perro", "Gato", "Elefante"];
+const professions = ["Doctor", "Ingeniero", "Maestro"];
+const characters = ["Harry Potter", "Sherlock Holmes", "Batman"];
+
+const App = () => {
+  const [currentList, setCurrentList] = useState(animals);
+  const [currentWord, setCurrentWord] = useState("");
+
+  const handleWordChange = () => {
+    const randomWord =
+      currentList[Math.floor(Math.random() * currentList.length)];
+    setCurrentWord(randomWord);
+  };
+
+  const handleListChange = (listName) => {
+    switch (listName) {
+      case "Animales":
+        setCurrentList(animals);
+        break;
+      case "Profesiones":
+        setCurrentList(professions);
+        break;
+      case "Personajes":
+        setCurrentList(characters);
+        break;
+      default:
+        setCurrentList([]);
+    }
+    setCurrentWord("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Palabra: {currentWord}</h1>
+      <WordButton onClick={handleWordChange} />
+      <ListSelector onChange={handleListChange} />
     </div>
   );
-}
+};
 
 export default App;
