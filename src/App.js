@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import WordButton from "./WordButton";
 import ListSelector from "./ListSelector";
+import animals from "./lists/animals.js";
+import characters from "./lists/characters.js";
 
-const animals = ["Perro", "Gato", "Elefante"];
 const professions = ["Doctor", "Ingeniero", "Maestro"];
-const characters = ["Harry Potter", "Sherlock Holmes", "Batman"];
 
 const App = () => {
   const [currentList, setCurrentList] = useState(animals);
   const [currentWord, setCurrentWord] = useState("");
+  const [usedWords, setUsedWords] = useState([]);
 
   const handleWordChange = () => {
+    const availableWords = currentList.filter(
+      (word) => !usedWords.includes(word)
+    );
+
+    if (availableWords.length === 0) {
+      setUsedWords([]);
+      setCurrentWord("No hay más palabras disponibles. Reiniciando...");
+      return;
+    }
+
     const randomWord =
-      currentList[Math.floor(Math.random() * currentList.length)];
+      availableWords[Math.floor(Math.random() * availableWords.length)];
     setCurrentWord(randomWord);
+    setUsedWords([...usedWords, randomWord]);
   };
 
   const handleListChange = (listName) => {
@@ -35,7 +47,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Palabra: {currentWord}</h1>
+      <h1> {currentWord}</h1>
       <WordButton onClick={handleWordChange} />
       <ListSelector onChange={handleListChange} />
     </div>

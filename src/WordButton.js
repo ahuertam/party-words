@@ -1,7 +1,7 @@
 import React from "react";
 
 const WordButton = ({ onClick }) => {
-  return <button onClick={onClick}>Recoger Palabra</button>;
+  return <button onClick={onClick}>Generar Palabra</button>;
 };
 
 export default WordButton;
