@@ -12,16 +12,24 @@ const App = () => {
   const [usedWords, setUsedWords] = useState([]);
   const [useTimer, setUseTimer] = useState(false);
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(0);
 
   useEffect(() => {
     let timer;
     if (currentWord && useTimer) {
+      setSecondsLeft(30);
       setIsTimeUp(false);
-      timer = setTimeout(() => {
-        setIsTimeUp(true);
-      }, 30000); // 30000 ms = 30 segundos
+      timer = setInterval(() => {
+        setSecondsLeft(prev => {
+          if (prev === 1) {
+            clearInterval(timer);
+            setIsTimeUp(true);
+          }
+          return prev - 1;
+        });
+      }, 1000);
     }
-    return () => clearTimeout(timer);
+    return () => clearInterval(timer);
   }, [currentWord, useTimer]);
   const handleWordChange = () => {
     const availableWords = currentList.filter(
@@ -81,8 +89,19 @@ const App = () => {
       >
         {currentWord}
       </h1>
+      {useTimer && (
+        <div style={{
+          fontSize: '2em',
+          fontWeight: 'bold',
+          color: secondsLeft <= 10 ? 'red' : 'black'
+        }}>
+          Tiempo restante: {secondsLeft} segundos
+        </div>
+      )}
       <ActivateTimer onChange={setUseTimer} />
-      <WordButton onClick={handleWordChange} />
+      <button className="generate-button" onClick={handleWordChange}>
+        Generar Nueva Palabra
+      </button>
       <ListSelector onChange={handleListChange} />
       <div>
         Instrucciones:

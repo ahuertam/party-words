@@ -36,3 +36,65 @@
     transform: rotate(360deg);
   }
 }
+
+/* Nuevos estilos para el contenedor principal */
+.App {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilos para el botón de generar palabra */
+.generate-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 20px 0;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.generate-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .generate-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .generate-button {
+    padding: 12px 24px;
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+}
