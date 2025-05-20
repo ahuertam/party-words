@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# 🎉 Party Words
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+¡Bienvenido a **Party Words**!  
+El juego perfecto para animar tus reuniones, fiestas y encuentros con amigos o familia.  
+Pon a prueba tu creatividad, rapidez mental y capacidad para adivinar palabras en un ambiente divertido y competitivo.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 ¿Qué es Party Words?
 
-### `npm start`
+**Party Words** es un juego interactivo de palabras en el que los participantes deben adivinar o describir palabras bajo presión de tiempo. Ideal para romper el hielo, reírse y pasar un rato inolvidable.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🕹️ ¿Cómo se juega?
 
-### `npm test`
+1. **Forma equipos** o juega de manera individual.
+2. Elige una categoría o deja que el juego seleccione palabras aleatorias.
+3. Un jugador describe la palabra sin decirla directamente, mientras los demás intentan adivinarla antes de que se acabe el tiempo.
+4. ¡Suma puntos y compite para ver quién es el mejor en Party Words!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ✨ Características
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 🎲 Múltiples categorías de palabras (cine, música, deportes, cultura pop y más)
+- ⏱️ Temporizador integrado para partidas rápidas y emocionantes
+- 👫 Modo equipos o individual
+- 📱 Interfaz intuitiva y fácil de usar
+- 🔄 Actualizaciones frecuentes con nuevas palabras y categorías
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Instalación
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/party-words.git
+   ```

@@ -15,14 +15,14 @@ const App = () => {
 
   useEffect(() => {
     let timer;
-    if (currentWord) {
+    if (currentWord && useTimer) {
       setIsTimeUp(false);
       timer = setTimeout(() => {
         setIsTimeUp(true);
-      }, 3000); // 30000 ms = 30 segundos
+      }, 30000); // 30000 ms = 30 segundos
     }
     return () => clearTimeout(timer);
-  }, [currentWord]);
+  }, [currentWord, useTimer]);
   const handleWordChange = () => {
     const availableWords = currentList.filter(
       (word) => !usedWords.includes(word)
@@ -31,11 +31,12 @@ const App = () => {
     if (availableWords.length === 0) {
       setUsedWords([]);
       setCurrentWord("No hay más palabras disponibles. Reiniciando...");
+      setTimeout(() => setCurrentWord(""), 2000); // Limpiar mensaje después de 2 segundos
       return;
     }
 
-    const randomWord =
-      availableWords[Math.floor(Math.random() * availableWords.length)];
+    const randomIndex = Math.floor(Math.random() * availableWords.length);
+    const randomWord = availableWords[randomIndex];
     setCurrentWord(randomWord);
     setUsedWords([...usedWords, randomWord]);
   };
