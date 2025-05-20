@@ -52,22 +52,40 @@
   background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 20px 40px;
+  padding: 25px 50px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.5em;
-  margin: 20px 0;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 30px 0;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 15px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
 }
 
 .generate-button:hover {
   background-color: #45a049;
   transform: scale(1.05);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .generate-button {
+    padding: 20px 40px;
+    font-size: 1.5em;
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .generate-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+  }
 }
 
 /* Estilos responsivos */
