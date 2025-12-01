@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ListSelector from "./ListSelector";
 import WordButton from "./WordButton";
 import './App.css';
@@ -16,6 +16,7 @@ const App = () => {
   const [soundOn, setSoundOn] = useState(true);
 
   const DURATION = 30;
+  const playBeepRef = useRef(null);
 
   const playBeep = (type = 'generate') => {
     if (!soundOn || typeof window === 'undefined') return;
@@ -45,6 +46,9 @@ const App = () => {
     }
   };
 
+  // Mantener referencia a la función de beep sin afectar dependencias del efecto
+  playBeepRef.current = playBeep;
+
   useEffect(() => {
     let timer;
     if (currentWord && useTimer) {
@@ -55,7 +59,9 @@ const App = () => {
           if (prev === 1) {
             clearInterval(timer);
             setIsTimeUp(true);
-            playBeep('timeup');
+            if (playBeepRef.current) {
+              playBeepRef.current('timeup');
+            }
           }
           return prev - 1;
         });

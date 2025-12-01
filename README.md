@@ -2,6 +2,9 @@
 
 Juego de fiesta para adivinar palabras con un diseño gamer oscuro, legible y adaptado a móvil. Ideal para mímica, pictionary y adivinanzas con amigos y familia.
 
+## 🖼️ Captura
+![Captura de la aplicación](public/screen.png)
+
 ## ✨ Características
 - Categorías: animales, profesiones y personajes.
 - Generación de palabras aleatorias sin repetición hasta agotar lista.
