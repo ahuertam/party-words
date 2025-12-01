@@ -1,39 +1,50 @@
-# 🎉 Party Words
+# 🎮 Party Words
 
-¡Bienvenido a **Party Words**!  
-El juego perfecto para animar tus reuniones, fiestas y encuentros con amigos o familia.  
-Pon a prueba tu creatividad, rapidez mental y capacidad para adivinar palabras en un ambiente divertido y competitivo.
-
----
-
-## 🚀 ¿Qué es Party Words?
-
-**Party Words** es un juego interactivo de palabras en el que los participantes deben adivinar o describir palabras bajo presión de tiempo. Ideal para romper el hielo, reírse y pasar un rato inolvidable.
-
----
-
-## 🕹️ ¿Cómo se juega?
-
-1. **Forma equipos** o juega de manera individual.
-2. Elige una categoría o deja que el juego seleccione palabras aleatorias.
-3. Un jugador describe la palabra sin decirla directamente, mientras los demás intentan adivinarla antes de que se acabe el tiempo.
-4. ¡Suma puntos y compite para ver quién es el mejor en Party Words!
-
----
+Juego de fiesta para adivinar palabras con un diseño gamer oscuro, legible y adaptado a móvil. Ideal para mímica, pictionary y adivinanzas con amigos y familia.
 
 ## ✨ Características
+- Categorías: animales, profesiones y personajes.
+- Generación de palabras aleatorias sin repetición hasta agotar lista.
+- Temporizador opcional de 30s con estado de alerta ≤10s.
+- Interfaz gamer: tipografías `Orbitron` y `Inter`, tema neon, responsive.
 
-- 🎲 Múltiples categorías de palabras (cine, música, deportes, cultura pop y más)
-- ⏱️ Temporizador integrado para partidas rápidas y emocionantes
-- 👫 Modo equipos o individual
-- 📱 Interfaz intuitiva y fácil de usar
-- 🔄 Actualizaciones frecuentes con nuevas palabras y categorías
+## 🚀 Uso rápido
+```bash
+npm install
+npm start
+```
+Abre `http://localhost:3000/`.
 
----
+## 🛠️ Scripts
+- `npm start` inicia el servidor de desarrollo.
+- `npm run build` genera la build de producción.
+- `npm run deploy` publica en GitHub Pages.
 
-## 📦 Instalación
+Sitio publicado: `https://ahuertam.github.io/party-words`
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tuusuario/party-words.git
-   ```
+## 📱 Diseño y Accesibilidad
+- Paleta con alto contraste y botones grandes para dispositivos táctiles.
+- Tipografías legibles y tamaños fluidos vía `clamp(...)`.
+- Variables CSS para personalizar colores (`src/index.css`).
+
+## 🧱 Estructura
+```
+src/
+  App.js          # Layout principal y lógica
+  App.css         # Estilos del tema gamer
+  ListSelector.js # Selector de categorías
+  ListSelector.css
+  lists/          # Listas de palabras
+```
+
+## 📦 Tecnologías
+- React (CRA), CSS moderno, GitHub Pages para despliegue.
+
+## 🤝 Contribuir
+PRs y sugerencias son bienvenidas. Ideas: más categorías, sonidos, barra de progreso del timer.
+
+## 📄 Licencia
+MIT.
+
+## 🙌 Créditos
+Fuentes: Orbitron y Inter vía Google Fonts.

@@ -1,125 +1,134 @@
+/* Layout principal */
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  padding: 24px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.controls input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: var(--accent);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Nuevos estilos para el contenedor principal */
-.App {
-  text-align: center;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Estilos para el botón de generar palabra */
-.generate-button {
-  background: linear-gradient(145deg, #4CAF50, #45a049);
-  border: none;
-  color: white;
-  padding: 30px 60px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2.5em;
-  font-family: 'Arial', sans-serif;
-  font-weight: bold;
-  margin: 40px 0;
-  cursor: pointer;
+/* Tarjeta de palabra */
+.word-card {
+  background: var(--card);
   border-radius: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  max-width: 500px;
+  padding: 24px;
+  width: min(720px, 92vw);
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.25), 0 0 36px rgba(0, 255, 195, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+}
+
+.word {
+  margin: 0;
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: 1px;
+  color: var(--text);
+  text-shadow: 0 0 12px rgba(0, 255, 195, 0.15);
+}
+
+.word.timeup {
+  color: var(--danger);
+}
+
+/* Temporizador */
+.timer {
+  margin-top: 8px;
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timer-danger {
+  color: var(--danger);
+}
+
+/* Botón generar palabra */
+.generate-button {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  border: none;
+  color: #0b0f14;
+  padding: 22px 32px;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-weight: 800;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(0, 255, 195, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  width: min(560px, 92vw);
+  display: block;
+  margin: 0 auto;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .generate-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 28px rgba(124, 58, 237, 0.55);
+  filter: brightness(1.05);
 }
 
-@media (max-width: 768px) {
-  .generate-button {
-    padding: 25px 50px;
-    font-size: 2em;
-  }
+/* Instrucciones */
+.instructions {
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  backdrop-filter: blur(4px);
+  padding: 16px 20px;
+  border-radius: 16px;
+  width: min(720px, 92vw);
+  text-align: left;
+  color: var(--muted);
+}
+.instructions p {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: var(--text);
 }
 
-@media (max-width: 480px) {
-  .generate-button {
-    padding: 20px 40px;
-    font-size: 1.5em;
-  }
+/* Barra de progreso */
+.progress {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: rgba(124, 58, 237, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 8px;
+  border: 1px solid rgba(124,58,237,0.35);
+}
+.progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 12px rgba(0,255,195,0.35);
 }
 
-@media (max-width: 480px) {
-  .generate-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-  }
-}
-
-/* Estilos responsivos */
+/* Responsivo */
 @media (max-width: 768px) {
   .App {
-    padding: 10px;
-  }
-
-  .generate-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    width: 90%;
-    margin: 10px auto;
-  }
-
-  h1 {
-    font-size: 1.8em;
-  }
-}
-
-@media (max-width: 480px) {
-  .generate-button {
-    padding: 12px 24px;
-    font-size: 1em;
-  }
-
-  h1 {
-    font-size: 1.5em;
+    padding: 16px;
+    gap: 16px;
   }
 }

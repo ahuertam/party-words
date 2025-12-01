@@ -1,6 +1,5 @@
-// src/ListSelector.js
 import React from "react";
-import './ListSelector.css'; // Nuevo archivo CSS para estilos
+import './ListSelector.css';
 
 const ListSelector = ({ onChange }) => {
   return (
